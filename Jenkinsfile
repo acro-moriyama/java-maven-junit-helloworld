@@ -5,7 +5,10 @@ pipeline {
     environment {
         docker_image_name = "java8-maven3-junit5"
     }
-    
+    git([
+        url          : 'https://github.com/acro-moriyama/java-maven-junit-helloworld',
+        branch       : 'Jenkinsfile'
+    ])
     agent {
     dockerfile {
         additionalBuildArgs '--no-cache=true --build-arg "JENKINS_USER_ID=112" --build-arg "JENKINS_GROUP_ID=117"'
