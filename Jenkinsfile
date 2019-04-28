@@ -25,5 +25,14 @@ pipeline {
                 }
             }
         }
+        stage('Analysis') {
+            steps {
+                script {
+                    dir('.') {
+                        sh 'echo "Analysis stage"'
+                    }
+                }
+            }
+        }
     }
 }
