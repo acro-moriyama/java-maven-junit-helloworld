@@ -20,23 +20,10 @@ pipeline {
             steps {
                 script {
                     dir('.') {
-                        sh 'set HTTP_PROXY=http://localhost:8080/'
-                        sh 'set HTTPS_PROXY=http://localhost:8080/'
-                        sh 'mvn package site --debug'
                         sh 'mvn clean package site'
                     }
                 }
             }
         }
-        stage('Analysis') {
-            steps {
-                script {
-                    dir('.') {
-                        sh 'echo "Analysis stage"'
-                    }
-                }
-            }
-        }
     }
-
 }
