@@ -25,15 +25,12 @@ pipeline {
                 }
             }
         }
-        stage('Static Analysis') {
-            steps {
-                step([
-                    $class: 'CheckStylePublisher'
-                ])
-                step([
-                    $class: 'stopBugsPublisher'
-                ])
-            }
+    }
+    post {
+        success {
+            recordIssues tool: checkStyle(pattern: target/checkstyle-result.xml)
+            recordIssues tool: stopBugs(pattern: target/spotbugs.xml)
         }
     }
+  }
 }
