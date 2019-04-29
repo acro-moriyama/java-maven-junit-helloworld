@@ -25,5 +25,17 @@ pipeline {
                 }
             }
         }
+        stage('Static Analysis') {
+            steps {
+                step([
+                    $class: 'CheckStylePublisher',
+                    pattern: "checkstyle.xml"
+                ])
+                step([
+                    $class: 'stopBugsPublisher',
+                    pattern: "findbugs-exclude.xml"
+                ])
+            }
+        }
     }
 }
