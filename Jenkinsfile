@@ -32,5 +32,4 @@ pipeline {
             recordIssues tool: stopBugs(pattern: target/spotbugs.xml)
         }
     }
-  }
 }
