@@ -28,12 +28,10 @@ pipeline {
         stage('Static Analysis') {
             steps {
                 step([
-                    $class: 'CheckStylePublisher',
-                    pattern: "checkstyle.xml"
+                    $class: 'CheckStylePublisher'
                 ])
                 step([
-                    $class: 'stopBugsPublisher',
-                    pattern: "findbugs-exclude.xml"
+                    $class: 'stopBugsPublisher'
                 ])
             }
         }
