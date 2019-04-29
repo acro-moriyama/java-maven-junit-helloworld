@@ -20,6 +20,7 @@ pipeline {
             steps {
                 script {
                     dir('.') {
+                        sh 'mvn package site --debug'
                         sh 'mvn clean package site'
                     }
                 }
