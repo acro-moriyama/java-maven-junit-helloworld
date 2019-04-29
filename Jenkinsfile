@@ -31,10 +31,6 @@ pipeline {
         success {
             recordIssues tool: checkStyle(pattern: "target/checkstyle-result.xml")
             recordIssues tool: spotBugs(pattern: "target/spotbugsXml.xml")
-            stepcounter settings: [
-                [encoding: 'UTF-8', filePattern: 'src/main/**/*.java', key: 'SourceCode'],
-                [encoding: 'UTF-8', filePattern: 'src/test/**/*.java', key: 'TestCode']
-            ]
         }
     }
 }
