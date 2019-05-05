@@ -28,6 +28,7 @@ pipeline {
     }
     post {
         success {
+            jacoco execPattern: "**/**.exec"
             recordIssues tool: checkStyle(pattern: "target/checkstyle-result.xml")
             recordIssues tool: spotBugs(pattern: "target/spotbugsXml.xml")
             stepcounter settings: [
